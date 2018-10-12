@@ -40,6 +40,7 @@ public class CampusMapActivity extends FragmentActivity implements OnMapReadyCal
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
+<<<<<<< HEAD
         //set of Lat Long to store locations of markers.
         LatLng lib = new LatLng(33.777196, -118.114788); // campus library
         LatLng la1 = new LatLng(33.777649, -118.114723); // liberal arts 1
@@ -78,14 +79,27 @@ public class CampusMapActivity extends FragmentActivity implements OnMapReadyCal
         LatLng mic = new LatLng(33.779296, -118.111747); // microbiology
 
         //Add a marker in CSULB and move the camera
+=======
+        //This variable holds the coordinates for the middle of CSULB's campus
+>>>>>>> master
         LatLng csulbCampus = new LatLng(33.783832, -118.114230);
+
+        //Add a marker for CSULB campus.
+        mMap.addMarker(new MarkerOptions().position(csulbCampus).title("Marker in CSULB"));
+
+        //Limit user scrolling/panning to within the CSULB campus
         LatLngBounds csulbBounds = new LatLngBounds(
                 new LatLng(33.775093, -118.121279), new LatLng(33.788692, -118.107953));
         mMap.setLatLngBoundsForCameraTarget(csulbBounds);
 
+<<<<<<< HEAD
         mMap.setMinZoomPreference(17.0f);
+=======
+        //Set minimum zoom level for map camera.
+        mMap.setMinZoomPreference(14.0f);
+>>>>>>> master
 
-        mMap.addMarker(new MarkerOptions().position(csulbCampus).title("Marker in CSULB"));
+        //Move the camera to the CSULB campus.
         mMap.moveCamera(CameraUpdateFactory.newLatLng(csulbCampus));
 
         // add markers to the campus map display
