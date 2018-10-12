@@ -3,4 +3,7 @@
     <string name="title_activity_campus_map">" CSULB Campus Map"</string>
     <string name="negative_action">Cancel</string>
     <string name="positive_action">Add Course</string>
+    <string name="done">Done</string>
+    <string name="cancel">Cancel</string>
+    <string name="pick_days">Select Days of Class Instruction</string>
 </resources>

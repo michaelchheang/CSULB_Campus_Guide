@@ -219,4 +219,14 @@
         <item>Visitor Information Center (VIC)</item>
         <item>Vivian Engineering Center (VEC)</item>
     </string-array>
+
+    <string-array name="daysOfWeek">
+        <item>Sunday</item>
+        <item>Monday</item>
+        <item>Tuesday</item>
+        <item>Wednesday</item>
+        <item>Thursday</item>
+        <item>Friday</item>
+        <item>Saturday</item>
+    </string-array>
 </resources>
