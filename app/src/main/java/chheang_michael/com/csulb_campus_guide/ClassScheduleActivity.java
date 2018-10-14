@@ -1,15 +1,27 @@
 package chheang_michael.com.csulb_campus_guide;
 
+import android.app.Activity;
+import android.app.DialogFragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
 
-public class ClassScheduleActivity extends AppCompatActivity {
+import java.util.ArrayList;
 
+public class ClassScheduleActivity extends AppCompatActivity{
+
+    public static final int REQUEST_CODE_FOR_COURSE_INFO = 1337;
+    public static final int RESULT_INVALID = 80085;
     FloatingActionButton fab;
+    TextView textView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,12 +32,51 @@ public class ClassScheduleActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Snackbar.make(view, "Add a course to your class schedule", Snackbar.LENGTH_SHORT)
-                  //      .setAction("Action", null).show();
+                Toast.makeText(ClassScheduleActivity.this,
+                        "Add a course to your schedule.", Toast.LENGTH_LONG)
+                        .show();
 
-                //Create an AddClassActivity instance as a dialog
-                startActivity(new Intent(ClassScheduleActivity.this, AddClassActivity.class));
+                //Get course details through the add class activity dialog.
+                Intent intent = new Intent(ClassScheduleActivity.this, AddClassActivity.class);
+                startActivityForResult(intent, REQUEST_CODE_FOR_COURSE_INFO);
             }
         });
+
+        textView = findViewById(R.id.textView);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        switch(requestCode) {
+            case REQUEST_CODE_FOR_COURSE_INFO:
+                if (resultCode == Activity.RESULT_OK) {
+                    //Get the course details
+                    ArrayList<String> arrayList= AddClassActivity.getCourseInfo(data);
+                    String s = "";
+                    for(int i = 0; i < arrayList.size(); i++){
+                        s += arrayList.get(i) + "\n";
+                    }
+                    textView.setText(s);
+
+                    Toast.makeText(ClassScheduleActivity.this,
+                            "Successfully added a course!", Toast.LENGTH_LONG)
+                            .show();
+                }
+                else if(resultCode == Activity.RESULT_CANCELED){
+                    Toast.makeText(ClassScheduleActivity.this,
+                            "Canceled!", Toast.LENGTH_LONG)
+                            .show();
+                }
+                else if(resultCode == Activity.RESULT_FIRST_USER){
+                    Toast.makeText(ClassScheduleActivity.this,
+                            "Invalid or missing information!", Toast.LENGTH_LONG)
+                            .show();
+                }
+                else{
+                    Toast.makeText(ClassScheduleActivity.this,
+                            "Failed to add the class...", Toast.LENGTH_LONG)
+                            .show();
+                }
+        }
     }
 }

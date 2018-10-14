@@ -1,24 +1,23 @@
 package chheang_michael.com.csulb_campus_guide;
 
+import android.app.Activity;
 import android.app.DialogFragment;
-import android.app.Fragment;
 import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
-import android.widget.CheckedTextView;
 import android.widget.EditText;
-import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.TimePicker;
+
+import java.util.ArrayList;
 
 public class AddClassActivity extends AppCompatActivity implements selectDaysOfClassFragment.DaysOfClassListener {
 
+    public static final String RESULT_COURSE_INFO = "chheang_michael.com.csulb_campus_guide.AddClassActivity - Return Course Info";
     AutoCompleteTextView addClassInput;
     AutoCompleteTextView addBuildingInput;
     EditText roomNumberInput;
@@ -112,6 +111,49 @@ public class AddClassActivity extends AppCompatActivity implements selectDaysOfC
                 newFragment.show(getFragmentManager(), "class_days");
             }
         });
+
+        roomNumberInput = (EditText) findViewById(R.id.roomNumberEditText);
+
+        addToSchedule = (Button) findViewById(R.id.addToScheduleButton);
+        addToSchedule.setText("Add to Schedule");
+        addToSchedule.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                // Extract data from the UI:
+                ArrayList<String> arrayList = new ArrayList<String>();
+
+                arrayList.add("Course: " + addClassInput.getText().toString());
+                arrayList.add("Building: " + addBuildingInput.getText().toString());
+                arrayList.add("Room: " + roomNumberInput.getText().toString());
+                arrayList.add("Start Time: " + startTimeInput.getText().toString());
+                arrayList.add("End Time: " + endTimeInput.getText().toString());
+                arrayList.add("Days of Class: " + dateInput.getText().toString());
+
+                // Pass data back to schedule activity
+                Intent intent = new Intent();
+                intent.putExtra(RESULT_COURSE_INFO, arrayList);
+                setResult(Activity.RESULT_OK, intent);
+                finish();
+            }
+        });
+
+        cancel = (Button) findViewById(R.id.cancelButton);
+        cancel.setText("Cancel");
+
+        cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //close the activity when cancel is clicked
+                Intent intent = new Intent();
+                setResult(Activity.RESULT_CANCELED, intent);
+                finish();
+            }
+        });
+    }
+
+    public static ArrayList<String> getCourseInfo(Intent intent){
+        return intent.getStringArrayListExtra(RESULT_COURSE_INFO);
     }
 
     @Override
