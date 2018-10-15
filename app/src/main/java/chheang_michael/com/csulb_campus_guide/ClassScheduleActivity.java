@@ -10,6 +10,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,6 +22,7 @@ public class ClassScheduleActivity extends AppCompatActivity{
     public static final int REQUEST_CODE_FOR_COURSE_INFO = 1337;
     public static final int RESULT_INVALID = 80085;
     FloatingActionButton fab;
+    Button button;
     TextView textView;
 
     @Override
@@ -43,6 +45,15 @@ public class ClassScheduleActivity extends AppCompatActivity{
         });
 
         textView = findViewById(R.id.textView);
+        button = findViewById(R.id.button);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Open Campus Map activity
+                Intent intent = new Intent(ClassScheduleActivity.this, CampusMapActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
