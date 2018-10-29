@@ -57,8 +57,8 @@ public class ClassScheduleActivity extends AppCompatActivity{
             }
         });
 
-        mapButton = findViewById(R.id.button);
-        mapButton.setOnClickListener(new View.OnClickListener() {
+        button = findViewById(R.id.button);
+        button.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View view) {
