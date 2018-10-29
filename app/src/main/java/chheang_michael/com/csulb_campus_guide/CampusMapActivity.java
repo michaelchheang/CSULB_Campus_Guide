@@ -77,95 +77,88 @@ public class CampusMapActivity extends FragmentActivity implements OnMapReadyCal
         LatLng et = new LatLng(33.782838, -118.108905);  // engineering technology
         LatLng mic = new LatLng(33.779296, -118.111747); // microbiology
 
-        //Add a marker in CSULB and move the camera
-        //This variable holds the coordinates for the middle of CSULB's campus
-        LatLng csulbCampus = new LatLng(33.783832, -118.114230);
-
-        //Add a marker for CSULB campus.
-        mMap.addMarker(new MarkerOptions().position(csulbCampus).title("Marker in CSULB"));
-
         //Limit user scrolling/panning to within the CSULB campus
         LatLngBounds csulbBounds = new LatLngBounds(
                 new LatLng(33.775093, -118.121279), new LatLng(33.788692, -118.107953));
         mMap.setLatLngBoundsForCameraTarget(csulbBounds);
 
-
         //set minimum zoom
         mMap.setMinZoomPreference(16.0f);
 
         //Move the camera to the CSULB campus.
+        LatLng csulbCampus = new LatLng(33.783832, -118.114230); // start position for camera
         mMap.moveCamera(CameraUpdateFactory.newLatLng(csulbCampus));
 
         // add markers to the campus map display
-        mMap.addMarker(new MarkerOptions().position(lib).title("CSULB Campus Library")
+        mMap.addMarker(new MarkerOptions().position(lib).title("CSULB Campus Library - LIB")
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
-        mMap.addMarker(new MarkerOptions().position(la1).title("Liberal Arts 1")
+        mMap.addMarker(new MarkerOptions().position(la1).title("Liberal Arts 1 - LA1")
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
-        mMap.addMarker(new MarkerOptions().position(la2).title("Liberal Arts 2")
+        mMap.addMarker(new MarkerOptions().position(la2).title("Liberal Arts 2 - LA2")
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
-        mMap.addMarker(new MarkerOptions().position(la3).title("Liberal Arts 3")
+        mMap.addMarker(new MarkerOptions().position(la3).title("Liberal Arts 3 - LA3")
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
-        mMap.addMarker(new MarkerOptions().position(la4).title("Liberal Arts 4")
+        mMap.addMarker(new MarkerOptions().position(la4).title("Liberal Arts 4 - LA4")
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
-        mMap.addMarker(new MarkerOptions().position(la5).title("Liberal Arts 5")
+        mMap.addMarker(new MarkerOptions().position(la5).title("Liberal Arts 5 - LA5")
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
-        mMap.addMarker(new MarkerOptions().position(psy).title("Psychology")
+        mMap.addMarker(new MarkerOptions().position(psy).title("Psychology - PSY")
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
-        mMap.addMarker(new MarkerOptions().position(ed1).title("Education 1")
+        mMap.addMarker(new MarkerOptions().position(ed1).title("Education 1 - ED1")
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
-        mMap.addMarker(new MarkerOptions().position(ed2).title("Education 2")
+        mMap.addMarker(new MarkerOptions().position(ed2).title("Education 2 - ED2")
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
-        mMap.addMarker(new MarkerOptions().position(ta).title("Theatre Arts")
+        mMap.addMarker(new MarkerOptions().position(ta).title("Theatre Arts - TA")
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
-        mMap.addMarker(new MarkerOptions().position(lab).title("Language Arts Building")
+        mMap.addMarker(new MarkerOptions().position(lab).title("Language Arts Building - LAB")
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
-        mMap.addMarker(new MarkerOptions().position(fa1).title("Fine Arts 1")
+        mMap.addMarker(new MarkerOptions().position(fa1).title("Fine Arts 1 - FA1")
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
-        mMap.addMarker(new MarkerOptions().position(fa2).title("Fine Arts 2")
+        mMap.addMarker(new MarkerOptions().position(fa2).title("Fine Arts 2 - FA2")
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
-        mMap.addMarker(new MarkerOptions().position(fa3).title("Fine Arts 3")
+        mMap.addMarker(new MarkerOptions().position(fa3).title("Fine Arts 3 - FA3")
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
-        mMap.addMarker(new MarkerOptions().position(fa4).title("Fine Arts 4")
+        mMap.addMarker(new MarkerOptions().position(fa4).title("Fine Arts 4 - FA4")
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
-        mMap.addMarker(new MarkerOptions().position(ph1).title("Peterson Hall 1")
+        mMap.addMarker(new MarkerOptions().position(ph1).title("Peterson Hall 1 - PH1")
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
-        mMap.addMarker(new MarkerOptions().position(ph2).title("Peterson Hall 2")
+        mMap.addMarker(new MarkerOptions().position(ph2).title("Peterson Hall 2 - PH2")
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
-        mMap.addMarker(new MarkerOptions().position(hsci).title("Hall of Science")
+        mMap.addMarker(new MarkerOptions().position(hsci).title("Hall of Science - HSCI")
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
-        mMap.addMarker(new MarkerOptions().position(mlsc).title("Molecular & Life Sciences Center")
+        mMap.addMarker(new MarkerOptions().position(mlsc).title("Molecular & Life Sciences Center - MLSC")
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
-        mMap.addMarker(new MarkerOptions().position(nur).title("Nursing")
+        mMap.addMarker(new MarkerOptions().position(nur).title("Nursing - NUR")
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
-        mMap.addMarker(new MarkerOptions().position(fcs).title("Family & Consumer Sciences")
+        mMap.addMarker(new MarkerOptions().position(fcs).title("Family & Consumer Sciences - FCS")
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
-        mMap.addMarker(new MarkerOptions().position(cba).title("College of Business Administration")
+        mMap.addMarker(new MarkerOptions().position(cba).title("College of Business Administration - CBA")
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
-        mMap.addMarker(new MarkerOptions().position(kin).title("Kinesology")
+        mMap.addMarker(new MarkerOptions().position(kin).title("Kinesology - KIN")
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
-        mMap.addMarker(new MarkerOptions().position(hhs1).title("Health & Human Services 1")
+        mMap.addMarker(new MarkerOptions().position(hhs1).title("Health & Human Services 1 - HHS1")
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
-        mMap.addMarker(new MarkerOptions().position(hhs2).title("Health & Human Services 2")
+        mMap.addMarker(new MarkerOptions().position(hhs2).title("Health & Human Services 2 - HHS2")
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
-        mMap.addMarker(new MarkerOptions().position(sspa).title("Social Sciences/Public Administration")
+        mMap.addMarker(new MarkerOptions().position(sspa).title("Social Sciences/Public Administration - SS/PA")
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
-        mMap.addMarker(new MarkerOptions().position(vec).title("Vivian Engineering Center")
+        mMap.addMarker(new MarkerOptions().position(vec).title("Vivian Engineering Center - VEC")
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
-        mMap.addMarker(new MarkerOptions().position(en2).title("Engineering 2")
+        mMap.addMarker(new MarkerOptions().position(en2).title("Engineering 2 - EN2")
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
-        mMap.addMarker(new MarkerOptions().position(en3).title("Engineering 3")
+        mMap.addMarker(new MarkerOptions().position(en3).title("Engineering 3 - EN3")
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
-        mMap.addMarker(new MarkerOptions().position(en4).title("Engineering 4")
+        mMap.addMarker(new MarkerOptions().position(en4).title("Engineering 4 - EN4")
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
-        mMap.addMarker(new MarkerOptions().position(ecs).title("Engineering/Computer Sciences")
+        mMap.addMarker(new MarkerOptions().position(ecs).title("Engineering/Computer Sciences - ECS")
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
-        mMap.addMarker(new MarkerOptions().position(desn).title("Design")
+        mMap.addMarker(new MarkerOptions().position(desn).title("Design - DESN")
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
-        mMap.addMarker(new MarkerOptions().position(hsd).title("Human Services & Design")
+        mMap.addMarker(new MarkerOptions().position(hsd).title("Human Services & Design - HSD")
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
-        mMap.addMarker(new MarkerOptions().position(et).title("Engineering Technology")
+        mMap.addMarker(new MarkerOptions().position(et).title("Engineering Technology - ET")
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
-        mMap.addMarker(new MarkerOptions().position(mic).title("Microbiology")
+        mMap.addMarker(new MarkerOptions().position(mic).title("Microbiology - MIC")
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
     }
 }

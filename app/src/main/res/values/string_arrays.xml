@@ -1,223 +1,223 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="classes">
-        <item>Accountancy  (ACCT)</item>
-        <item>Africana Studies  (AFRS)</item>
-        <item>Am Sign Lang Ling &amp; Deaf Culture  (ASLD)</item>
-        <item>American Indian Studies  (AIS)</item>
-        <item>American Studies  (AMST)</item>
-        <item>Anthropology  (ANTH)</item>
-        <item>Arabic  (ARAB)</item>
-        <item>Art  (ART)</item>
-        <item>Art History  (AH)</item>
-        <item>Asian &amp; Asian American Studies (AAAS)</item>
-        <item>Asian American Studies (ASAM)</item>
-        <item>Asian Studies (A/ST)</item>
-        <item>Astronomy (ASTR)</item>
-        <item>Athletic Training Education Pg (ATEP)</item>
-        <item>Athletics (ATHL)</item>
-        <item>Biology (BIOL)</item>
-        <item>Biomedical Engineering (BME)</item>
-        <item>Business Admin, College of (CBA)</item>
-        <item>Business Law (BLAW)</item>
-        <item>CSU OnLine - LB ONLY (OLNE)</item>
-        <item>Cambodian (KHMR)</item>
-        <item>Chemical Engineering (CHE)</item>
-        <item>Chemistry &amp; Biochemistry (CHEM)</item>
-        <item>Chicano &amp; Latino Studies (CHLS)</item>
-        <item>Child Developmnt &amp; Family Studies (CDFS)</item>
-        <item>Chinese (CHIN)</item>
-        <item>Civil Engineering (CE)</item>
-        <item>Classics (CLSC)</item>
-        <item>College of the Arts (COTA)</item>
-        <item>Communication Studies (COMM)</item>
-        <item>Communicative Disorders (CD)</item>
-        <item>Comparative World Literature (CWL)</item>
-        <item>Computer Engr &amp; Computer Science (CECS)</item>
-        <item>Concurrent Enrollment (XYZ)</item>
-        <item>Construction Engineering Management (CEM)</item>
-        <item>Consumer Affairs (CAFF)</item>
-        <item>Counseling (COUN)</item>
-        <item>Criminology &amp; Criminal Justice (CRJU)</item>
-        <item>Cross Enroll Place Holder (XENR)</item>
-        <item>Dance (DANC)</item>
-        <item>Design (DESN)</item>
-        <item>Doctor of Physical Therapy (DPT)</item>
-        <item>Economics (ECON)</item>
-        <item>Educ Leadership Doctorate (EDLD)</item>
-        <item>Education - Curr &amp; Instruction (EDCI)</item>
-        <item>Education - Early Childhood (EDEC)</item>
-        <item>Education - Elementary (EDEL)</item>
-        <item>Education - Reading (EDRG)</item>
-        <item>Education - Secondary (EDSE)</item>
-        <item>Education - Single Subject (EDSS)</item>
-        <item>Education Specialist (EDSP)</item>
-        <item>Educational Administration (EDAD)</item>
-        <item>Educational Opportunity Program (EOP)</item>
-        <item>Educational Psychology (EDP)</item>
-        <item>Educational Technology (ETEC)</item>
-        <item>Electrical Engineering (EE)</item>
-        <item>Engineering (ENGR)</item>
-        <item>Engineering Technology (ET)</item>
-        <item>English (ENGL)</item>
-        <item>Environmental Science &amp; Policy (ESP)</item>
-        <item>Family &amp; Consumer Sciences (FCS)</item>
-        <item>Fashion Merchandising &amp; Design (FMD)</item>
-        <item>Filipino (FIL)</item>
-        <item>Film and Electronic Arts (FEA)</item>
-        <item>Finance (FIN)</item>
-        <item>Food Science (FSCI)</item>
-        <item>French (FREN)</item>
-        <item>Geography (GEOG)</item>
-        <item>Geology (GEOL)</item>
-        <item>German (GERM)</item>
-        <item>Gerontology (GERN)</item>
-        <item>Graduate Business Administration (GBA)</item>
-        <item>Greek (GK)</item>
-        <item>Health Care Administration (HCA)</item>
-        <item>Health Science (HSC)</item>
-        <item>Hebrew (HEBW)</item>
-        <item>History (HIST)</item>
-        <item>Hospitality Management (HFHM)</item>
-        <item>Human Development (HDEV)</item>
-        <item>Human Resources Management (HRM)</item>
-        <item>Information Systems (IS)</item>
-        <item>International Education (INTL)</item>
-        <item>International Studies (I/ST)</item>
-        <item>Italian (ITAL)</item>
-        <item>Japanese (JAPN)</item>
-        <item>Journalism (JOUR)</item>
-        <item>Kinesiology (KIN)</item>
-        <item>Korean (KOR)</item>
-        <item>Latin (LAT)</item>
-        <item>Liberal Arts, College of (C/LA)</item>
-        <item>Liberal Studies (L/ST)</item>
-        <item>Linguistics (LING)</item>
-        <item>Management (MGMT)</item>
-        <item>Marketing (MKTG)</item>
-        <item>Mathematics (MATH)</item>
-        <item>Mathematics Education (MTED)</item>
-        <item>Mechanical &amp; Aerospace Engineering (MAE)</item>
-        <item>Military Science (MS)</item>
-        <item>Music (MUS)</item>
-        <item>Natural Sciences (NSCI)</item>
-        <item>Nursing (NRSG)</item>
-        <item>Nutrition and Dietetics (NUTR)</item>
-        <item>Ocean Studies Institute (OSI)</item>
-        <item>Philosophy (PHIL)</item>
-        <item>Physical Science (PHSC)</item>
-        <item>Physics (PHYS)</item>
-        <item>Political Science (POSC)</item>
-        <item>Psychology (PSY)</item>
-        <item>Public Policy &amp; Administration (PPA)</item>
-        <item>Recreation (REC)</item>
-        <item>Religious Studies (R/ST)</item>
-        <item>Romance German Russian Lang (RGR)</item>
-        <item>Russian (RUSS)</item>
-        <item>Science Education (SCED)</item>
-        <item>Social Cultural Analysis Education (SCAE)</item>
-        <item>Social Work (SW)</item>
-        <item>Sociology (SOC)</item>
-        <item>Spanish (SPAN)</item>
-        <item>Statistics (STAT)</item>
-        <item>Student Development Higher Education (SDHE)</item>
-        <item>Student Recreation &amp; Leadership (SRL)</item>
-        <item>Supplemental Instruction (S/I)</item>
-        <item>Supply Chain Management (SCM)</item>
-        <item>Theatre Arts (THEA)</item>
-        <item>University (UNIV)</item>
-        <item>University Honors Program (UHP)</item>
-        <item>University Research (RSCH)</item>
-        <item>Urban Dual Credential Program (UDCP)</item>
-        <item>Vietnamese (VIET)</item>
-        <item>"Women's Gender Sexuality Studies (WGSS)"</item>
+        <item>Accountancy - ACCT</item>
+        <item>Africana Studies - AFRS</item>
+        <item>Am Sign Lang Ling &amp; Deaf Culture - ASLD</item>
+        <item>American Indian Studies - AIS</item>
+        <item>American Studies - AMST</item>
+        <item>Anthropology - ANTH</item>
+        <item>Arabic - ARAB</item>
+        <item>Art - ART</item>
+        <item>Art History - AH</item>
+        <item>Asian &amp; Asian American Studies - AAAS</item>
+        <item>Asian American Studies - ASAM</item>
+        <item>Asian Studies - A/ST</item>
+        <item>Astronomy - ASTR</item>
+        <item>Athletic Training Education Pg - ATEP</item>
+        <item>Athletics - ATHL</item>
+        <item>Biology - BIOL</item>
+        <item>Biomedical Engineering - BME</item>
+        <item>Business Law - BLAW</item>
+        <item>CSU Online - LB ONLY - OLNE</item>
+        <item>Cambodian - KHMR</item>
+        <item>Chemical Engineering - CHE</item>
+        <item>Chemistry &amp; Biochemistry - CHEM</item>
+        <item>Chicano &amp; Latino Studies - CHLS</item>
+        <item>Child Development &amp; Family Studies - CDFS</item>
+        <item>Chinese - CHIN</item>
+        <item>Civil Engineering - CE</item>
+        <item>Classics - CLSC</item>
+        <item>College of Business Administration - CBA</item>
+        <item>College of Liberal Arts - C/LA</item>
+        <item>College of the Arts - COTA</item>
+        <item>Communication Studies - COMM</item>
+        <item>Communicative Disorders - CD</item>
+        <item>Comparative World Literature - CWL</item>
+        <item>Computer Engineering &amp; Computer Science - CECS</item>
+        <item>Concurrent Enrollment - XYZ</item>
+        <item>Construction Engineering Management - CEM</item>
+        <item>Consumer Affairs - CAFF</item>
+        <item>Counseling - COUN</item>
+        <item>Criminology &amp; Criminal Justice - CRJU</item>
+        <item>Cross Enroll Place Holder - XENR</item>
+        <item>Dance - DANC</item>
+        <item>Design - DESN</item>
+        <item>Doctor of Physical Therapy - DPT</item>
+        <item>Economics - ECON</item>
+        <item>Educ Leadership Doctorate - EDLD</item>
+        <item>Education - Curr &amp; Instruction - EDCI</item>
+        <item>Education - Early Childhood - EDEC</item>
+        <item>Education - Elementary - EDEL</item>
+        <item>Education - Reading - EDRG</item>
+        <item>Education - Secondary - EDSE</item>
+        <item>Education - Single Subject - EDSS</item>
+        <item>Education Specialist - EDSP</item>
+        <item>Educational Administration - EDAD</item>
+        <item>Educational Opportunity Program - EOP</item>
+        <item>Educational Psychology - EDP</item>
+        <item>Educational Technology - ETEC</item>
+        <item>Electrical Engineering - EE</item>
+        <item>Engineering - ENGR</item>
+        <item>Engineering Technology - ET</item>
+        <item>English - ENGL</item>
+        <item>Environmental Science &amp; Policy - ESP</item>
+        <item>Family &amp; Consumer Sciences - FCS</item>
+        <item>Fashion Merchandising &amp; Design - FMD</item>
+        <item>Filipino - FIL</item>
+        <item>Film and Electronic Arts - FEA</item>
+        <item>Finance - FIN</item>
+        <item>Food Science - FSCI</item>
+        <item>French - FREN</item>
+        <item>Geography - GEOG</item>
+        <item>Geology - GEOL</item>
+        <item>German - GERM</item>
+        <item>Gerontology - GERN</item>
+        <item>Graduate Business Administration - GBA</item>
+        <item>Greek - GK</item>
+        <item>Health Care Administration - HCA</item>
+        <item>Health Science - HSC</item>
+        <item>Hebrew - HEBW</item>
+        <item>History - HIST</item>
+        <item>Hospitality Management - HFHM</item>
+        <item>Human Development - HDEV</item>
+        <item>Human Resources Management - HRM</item>
+        <item>Information Systems - IS</item>
+        <item>International Education - INTL</item>
+        <item>International Studies - I/ST</item>
+        <item>Italian - ITAL</item>
+        <item>Japanese - JAPN</item>
+        <item>Journalism - JOUR</item>
+        <item>Kinesiology - KIN</item>
+        <item>Korean - KOR</item>
+        <item>Latin - LAT</item>
+        <item>Liberal Studies - L/ST</item>
+        <item>Linguistics - LING</item>
+        <item>Management - MGMT</item>
+        <item>Marketing - MKTG</item>
+        <item>Mathematics - MATH</item>
+        <item>Mathematics Education - MTED</item>
+        <item>Mechanical &amp; Aerospace Engineering - MAE</item>
+        <item>Military Science - MS</item>
+        <item>Music - MUS</item>
+        <item>Natural Sciences - NSCI</item>
+        <item>Nursing - NRSG</item>
+        <item>Nutrition and Dietetics - NUTR</item>
+        <item>Ocean Studies Institute - OSI</item>
+        <item>Philosophy - PHIL</item>
+        <item>Physical Science - PHSC</item>
+        <item>Physics - PHYS</item>
+        <item>Political Science - POSC</item>
+        <item>Psychology - PSY</item>
+        <item>Public Policy &amp; Administration - PPA</item>
+        <item>Recreation - REC</item>
+        <item>Religious Studies - R/ST</item>
+        <item>Romance German Russian Lang - RGR</item>
+        <item>Russian - RUSS</item>
+        <item>Science Education - SCED</item>
+        <item>Social Cultural Analysis Education - SCAE</item>
+        <item>Social Work - SW</item>
+        <item>Sociology - SOC</item>
+        <item>Spanish - SPAN</item>
+        <item>Statistics - STAT</item>
+        <item>Student Development Higher Education - SDHE</item>
+        <item>Student Recreation &amp; Leadership - SRL</item>
+        <item>Supplemental Instruction - S/I</item>
+        <item>Supply Chain Management - SCM</item>
+        <item>Theatre Arts - THEA</item>
+        <item>University - UNIV</item>
+        <item>University Honors Program - UHP</item>
+        <item>University Research - RSCH</item>
+        <item>Urban Dual Credential Program - UDCP</item>
+        <item>Vietnamese - VIET</item>
+        <item>Women's Gender Sexuality Studies - WGSS</item>
     </string-array>
 
     <string-array name="buildings">
-        <item>49er Pool (POOL)</item>
-        <item>49er Softball Complex (SC)</item>
-        <item>Academic Services (AS)</item>
-        <item>Barrett Athletic Administration Center (BAC)</item>
-        <item>Bookstore (BKS)</item>
-        <item>Brotman Hall (BH)</item>
-        <item>Carpenter Performing Arts Center (CPAC)</item>
-        <item>Central Plant (CP)</item>
-        <item>Child Development Center (CDC)</item>
-        <item>College of Business Administration (CBA)</item>
-        <item>Corporation Yard (CORP)</item>
-        <item>Dance Center (DC)</item>
-        <item>Design (DESN)</item>
-        <item>Education 1 (ED1)</item>
-        <item>Education 2 (ED2)</item>
-        <item>Engineering 2 (EN2)</item>
-        <item>Engineering 3 (EN3)</item>
-        <item>Engineering 4 (EN4)</item>
-        <item>Engineering Technology (ET)</item>
-        <item>Engineering/Computer Sciences (ECS)</item>
-        <item>Facilities Management (FM)</item>
-        <item>Faculty Office 2 (FO2)</item>
-        <item>Faculty Office 3 (FO3)</item>
-        <item>Faculty Office 4 (FO4)</item>
-        <item>Faculty Office 5 (FO5)</item>
-        <item>Family &amp; Consumer Sciences (FCS)</item>
-        <item>Fine Arts 1 (FA1)</item>
-        <item>Fine Arts 2 (FA2)</item>
-        <item>Fine Arts 3 (FA3)</item>
-        <item>Fine Arts 4 (FA4)</item>
-        <item>Foundation (FND)</item>
-        <item>Hall of Science (HSCI)</item>
-        <item>Health &amp; Human Services 1 Classrooms (HHS1)</item>
-        <item>Health &amp; Human Services 2 Offices (HHS2)</item>
-        <item>Horn Center (HC)</item>
-        <item>Housing &amp; Residential Life (HRL)</item>
-        <item>Human Services and Design (HSD)</item>
-        <item>International House (IH)</item>
-        <item>Japanese Garden (JG)</item>
-        <item>KKJZ/FM (KKJZ)</item>
-        <item>Kinesology (KIN)</item>
-        <item>Language Arts Building (LAB)</item>
-        <item>Lecture Halls 150/151 (LH)</item>
-        <item>Liberal Arts 1 (LA1)</item>
-        <item>Liberal Arts 2 (LA2)</item>
-        <item>Liberal Arts 3 (LA3)</item>
-        <item>Liberal Arts 4 (LA4)</item>
-        <item>Liberal Arts 5 (LA5)</item>
-        <item>Library (LIB)</item>
-        <item>Los Alamitos Hall (LAH)</item>
-        <item>Los Cerritos Hall (LCH)</item>
-        <item>Mail Services (MS)</item>
-        <item>McIntosh Humanities Bldg (MHB)</item>
-        <item>Microbiology (MIC)</item>
-        <item>Mike &amp; Arline Walter Pyramid (PYR)</item>
-        <item>Molecular &amp; Life Sciences Center (MLSC)</item>
-        <item>Multi-Media Center (MMC)</item>
-        <item>Nursing (NUR)</item>
-        <item>Outdoor Beach Course (OUTBACK)</item>
-        <item>Outpost Food Service (OP)</item>
-        <item>Parking and Transportation Svc (PTS)</item>
-        <item>Parkside Commons and Housing (PCH)</item>
-        <item>Peterson Hall 1 (PH1)</item>
-        <item>Peterson Hall 2 (PH2)</item>
-        <item>Psychology (PSY)</item>
-        <item>Receiving (REC)</item>
-        <item>Recycling Center (RC)</item>
-        <item>Residence Commons and Housing (RH)</item>
-        <item>Social Sciences / Public Administration (SS/PA)</item>
-        <item>Soroptomist House (SOR)</item>
-        <item>Student Health Services (SHS)</item>
-        <item>Student Recreation I Wellness Center (SRWC)</item>
-        <item>Tennis Center (Tennis Courts)</item>
-        <item>Theater Arts (TA)</item>
-        <item>University Art Museum (UAM)</item>
-        <item>University Bookstore (BKS)</item>
-        <item>University Dining Plaza (UDP)</item>
-        <item>University Music Center (UMC)</item>
-        <item>University Police Department (UP)</item>
-        <item>University Print Shop (UPS)</item>
-        <item>University Student Union (USU)</item>
-        <item>University Telecommunications (UTC)</item>
-        <item>Visitor Information Center (VIC)</item>
-        <item>Vivian Engineering Center (VEC)</item>
+        <item>49er Pool - POOL</item>
+        <item>49er Softball Complex - SC</item>
+        <item>Academic Services - AS</item>
+        <item>Barrett Athletic Administration Center - BAC</item>
+        <item>Bookstore - BKS</item>
+        <item>Brotman Hall - BH</item>
+        <item>Carpenter Performing Arts Center - CPAC</item>
+        <item>Central Plant - CP</item>
+        <item>Child Development Center - CDC</item>
+        <item>College of Business Administration - CBA</item>
+        <item>Corporation Yard - CORP</item>
+        <item>Dance Center - DC</item>
+        <item>Design - DESN</item>
+        <item>Education 1 - ED1</item>
+        <item>Education 2 - ED2</item>
+        <item>Engineering 2 - EN2</item>
+        <item>Engineering 3 - EN3</item>
+        <item>Engineering 4 - EN4</item>
+        <item>Engineering Technology - ET</item>
+        <item>Engineering/Computer Sciences - ECS</item>
+        <item>Facilities Management - FM</item>
+        <item>Faculty Office 2 - FO2</item>
+        <item>Faculty Office 3 - FO3</item>
+        <item>Faculty Office 4 - FO4</item>
+        <item>Faculty Office 5 - FO5</item>
+        <item>Family &amp; Consumer Sciences - FCS</item>
+        <item>Fine Arts 1 - FA1</item>
+        <item>Fine Arts 2 - FA2</item>
+        <item>Fine Arts 3 - FA3</item>
+        <item>Fine Arts 4 - FA4</item>
+        <item>Foundation - FND</item>
+        <item>Hall of Science - HSCI</item>
+        <item>Health &amp; Human Services 1 Classrooms - HHS1</item>
+        <item>Health &amp; Human Services 2 Offices - HHS2</item>
+        <item>Horn Center - HC</item>
+        <item>Housing &amp; Residential Life - HRL</item>
+        <item>Human Services and Design - HSD</item>
+        <item>International House - IH</item>
+        <item>Japanese Garden - JG</item>
+        <item>KKJZ/FM - KKJZ</item>
+        <item>Kinesology - KIN</item>
+        <item>Language Arts Building - LAB</item>
+        <item>Lecture Halls 150/151 - LH</item>
+        <item>Liberal Arts 1 - LA1</item>
+        <item>Liberal Arts 2 - LA2</item>
+        <item>Liberal Arts 3 - LA3</item>
+        <item>Liberal Arts 4 - LA4</item>
+        <item>Liberal Arts 5 - LA5</item>
+        <item>Library - LIB</item>
+        <item>Los Alamitos Hall - LAH</item>
+        <item>Los Cerritos Hall - LCH</item>
+        <item>Mail Services - MS</item>
+        <item>McIntosh Humanities Bldg - MHB</item>
+        <item>Microbiology - MIC</item>
+        <item>Mike &amp; Arline Walter Pyramid - PYR</item>
+        <item>Molecular &amp; Life Sciences Center - MLSC</item>
+        <item>Multi-Media Center - MMC</item>
+        <item>Nursing - NUR</item>
+        <item>Outdoor Beach Course - OUTBACK</item>
+        <item>Outpost Food Service - OP</item>
+        <item>Parking and Transportation Svc - PTS</item>
+        <item>Parkside Commons and Housing - PCH</item>
+        <item>Peterson Hall 1 - PH1</item>
+        <item>Peterson Hall 2 - PH2</item>
+        <item>Psychology - PSY</item>
+        <item>Receiving - REC</item>
+        <item>Recycling Center - RC</item>
+        <item>Residence Commons and Housing - RH</item>
+        <item>Social Sciences/Public Administration - SS/PA</item>
+        <item>Soroptomist House - SOR</item>
+        <item>Student Health Services - SHS</item>
+        <item>Student Recreation I Wellness Center - SRWC</item>
+        <item>Tennis Center - Tennis Courts</item>
+        <item>Theater Arts - TA</item>
+        <item>University Art Museum - UAM</item>
+        <item>University Bookstore - BKS</item>
+        <item>University Dining Plaza - UDP</item>
+        <item>University Music Center - UMC</item>
+        <item>University Police Department - UP</item>
+        <item>University Print Shop - UPS</item>
+        <item>University Student Union - USU</item>
+        <item>University Telecommunications - UTC</item>
+        <item>Visitor Information Center - VIC</item>
+        <item>Vivian Engineering Center - VEC</item>
     </string-array>
 
     <string-array name="daysOfWeek">
