@@ -21,7 +21,6 @@ import java.util.ArrayList;
 public class ClassScheduleActivity extends AppCompatActivity{
 
     public static final int REQUEST_CODE_FOR_COURSE_INFO = 1337;
-    public static final int RESULT_INVALID = 80085;
     FloatingActionButton fab;
   
     Button button;
@@ -54,15 +53,6 @@ public class ClassScheduleActivity extends AppCompatActivity{
                 // Open Campus Map activity
                 Intent intent = new Intent(ClassScheduleActivity.this, CampusMapActivity.class);
                 startActivity(intent);
-            }
-        });
-
-        button = findViewById(R.id.button);
-        button.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(ClassScheduleActivity.this, CampusMapActivity.class));
             }
         });
     }
