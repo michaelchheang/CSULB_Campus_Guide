@@ -5,6 +5,7 @@ import android.app.Dialog;
 import android.app.DialogFragment;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -67,6 +68,7 @@ public class selectDaysOfClassFragment extends DialogFragment{
                             s = s.substring(0, s.length() - 2);
                         }
                         listener.applyDaysString(s);
+                        dismiss();
                     }
                 });
         Sunday = view.findViewById(R.id.sundayCheckBox);
