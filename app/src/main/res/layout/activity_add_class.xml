@@ -6,12 +6,12 @@
     android:layout_height="match_parent"
     android:focusable="true"
     android:focusableInTouchMode="true"
-    tools:context=".AddClassActivity"
+    tools:context=".AddCourseActivity"
     tools:layout_editor_absoluteX="16dp"
     tools:layout_editor_absoluteY="16dp">
 
     <AutoCompleteTextView
-        android:id="@+id/classesAutoCompleteTextView"
+        android:id="@+id/coursesAutoCompleteTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
@@ -32,7 +32,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/classNumberEditText"
+        android:id="@+id/courseNumberEditText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
@@ -68,7 +68,7 @@
         app:layout_constraintEnd_toStartOf="@+id/guideline"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/classesAutoCompleteTextView" />
+        app:layout_constraintTop_toBottomOf="@+id/coursesAutoCompleteTextView" />
 
     <EditText
         android:id="@+id/roomNumberEditText"
@@ -85,7 +85,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toBottomOf="@+id/classNumberEditText" />
+        app:layout_constraintTop_toBottomOf="@+id/courseNumberEditText" />
 
     <EditText
         android:id="@+id/startTimeEditText"
@@ -115,7 +115,7 @@
         android:ems="10"
         android:imeOptions="actionDone|flagNoExtractUi"
         android:inputType="time"
-        app:layout_constraintBottom_toTopOf="@+id/daysOfClassEditText"
+        app:layout_constraintBottom_toTopOf="@+id/daysOfCourseEditText"
         app:layout_constraintEnd_toStartOf="@+id/guideline4"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/endTimeTextView"
@@ -145,14 +145,14 @@
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
         android:text="  End Time:"
-        app:layout_constraintBottom_toTopOf="@+id/daysOfClassEditText"
+        app:layout_constraintBottom_toTopOf="@+id/daysOfCourseEditText"
         app:layout_constraintEnd_toStartOf="@+id/endTimeEditText"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@+id/guideline3"
         app:layout_constraintTop_toBottomOf="@+id/startTimeTextView" />
 
     <EditText
-        android:id="@+id/daysOfClassEditText"
+        android:id="@+id/daysOfCourseEditText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
@@ -181,7 +181,7 @@
         app:layout_constraintEnd_toStartOf="@+id/addToScheduleButton"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/daysOfClassEditText" />
+        app:layout_constraintTop_toBottomOf="@+id/daysOfCourseEditText" />
 
     <Button
         android:id="@+id/addToScheduleButton"
@@ -196,7 +196,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/cancelButton"
-        app:layout_constraintTop_toBottomOf="@+id/daysOfClassEditText" />
+        app:layout_constraintTop_toBottomOf="@+id/daysOfCourseEditText" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline"
