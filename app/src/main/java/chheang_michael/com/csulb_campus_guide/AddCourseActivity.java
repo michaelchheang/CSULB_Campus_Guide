@@ -6,24 +6,28 @@ import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
-public class AddClassActivity extends AppCompatActivity implements selectDaysOfClassFragment.DaysOfClassListener {
+public class AddCourseActivity extends AppCompatActivity implements selectDaysOfClassFragment.DaysOfClassListener {
 
-    public static final String RESULT_COURSE_INFO = "chheang_michael.com.csulb_campus_guide.AddClassActivity - Return Course Info";
-    AutoCompleteTextView addClassInput;
+    public static final String RESULT_COURSE_INFO = "chheang_michael.com.csulb_campus_guide.AddCourseActivity - Return Course Info";
+    AutoCompleteTextView addCourseInput;
     AutoCompleteTextView addBuildingInput;
+    EditText courseNumberInput;
     EditText roomNumberInput;
     EditText startTimeInput;
     EditText endTimeInput;
-    EditText dateInput;
+    EditText daysOfCourseInput;
     Button addToSchedule;
     Button cancel;
 
@@ -32,12 +36,14 @@ public class AddClassActivity extends AppCompatActivity implements selectDaysOfC
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_class);
 
-        // addClassInput will ask the user to enter the course's name (e.g. "CECS 445" or "ENGL 317")
-        addClassInput = (AutoCompleteTextView) findViewById(R.id.classesAutoCompleteTextView);
-        ArrayAdapter<String> classesAdapter = new ArrayAdapter<String>
-                (this,android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.classes));
-        addClassInput.setAdapter(classesAdapter);
-        addClassInput.setThreshold(1);
+        // addCourseInput will ask the user to enter the course's name (e.g. "CECS 445" or "ENGL 317")
+        addCourseInput = (AutoCompleteTextView) findViewById(R.id.coursesAutoCompleteTextView);
+        ArrayAdapter<String> coursesAdapter = new ArrayAdapter<String>
+                (this,android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.courses));
+        addCourseInput.setAdapter(coursesAdapter);
+        addCourseInput.setThreshold(1);
+
+        courseNumberInput = (EditText) findViewById(R.id.courseNumberEditText);
 
         // addBuildingInput will ask the user to enter the course's building (e.g. "ECS" or "Engineering and Computer Science")
         addBuildingInput = (AutoCompleteTextView) findViewById(R.id.buildingsAutoCompleteTextView);
@@ -69,7 +75,7 @@ public class AddClassActivity extends AppCompatActivity implements selectDaysOfC
                         }
                     }
                 }, 0,0,false);
-                startTimePicker.setTitle("Select Class Start Time");
+                startTimePicker.setTitle("Select Course Start Time");
                 startTimePicker.show();
             }
         });
@@ -97,14 +103,14 @@ public class AddClassActivity extends AppCompatActivity implements selectDaysOfC
                         }
                     }
                 }, 0,0,false);
-                endTimePicker.setTitle("Select Class end Time");
+                endTimePicker.setTitle("Select Course end Time");
                 endTimePicker.show();
             }
         });
 
-        dateInput = (EditText) findViewById(R.id.daysOfClassEditText);
-        dateInput.setFocusable(false);
-        dateInput.setOnClickListener(new View.OnClickListener(){
+        daysOfCourseInput = (EditText) findViewById(R.id.daysOfCourseEditText);
+        daysOfCourseInput.setFocusable(false);
+        daysOfCourseInput.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 DialogFragment newFragment = new selectDaysOfClassFragment();
@@ -119,22 +125,85 @@ public class AddClassActivity extends AppCompatActivity implements selectDaysOfC
         addToSchedule.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                // Extract data from the UI:
+                // Extract data from the dialog:
                 ArrayList<String> arrayList = new ArrayList<String>();
 
-                arrayList.add("Course: " + addClassInput.getText().toString());
-                arrayList.add("Building: " + addBuildingInput.getText().toString());
-                arrayList.add("Room: " + roomNumberInput.getText().toString());
-                arrayList.add("Start Time: " + startTimeInput.getText().toString());
-                arrayList.add("End Time: " + endTimeInput.getText().toString());
-                arrayList.add("Days of Class: " + dateInput.getText().toString());
+                String course = addCourseInput.getText().toString();
+                if(Arrays.binarySearch(getResources().getStringArray(R.array.courses), course) > 0){
+                    // do nothing if course matches a class from array
+                }
+                else{
+                    Toast.makeText(AddCourseActivity.this,
+                            "Please enter a valid course", Toast.LENGTH_LONG)
+                            .show();
+                    return;
+                }
 
-                // Pass data back to schedule activity
-                Intent intent = new Intent();
-                intent.putExtra(RESULT_COURSE_INFO, arrayList);
-                setResult(Activity.RESULT_OK, intent);
-                finish();
+                String courseNumber = courseNumberInput.getText().toString();
+                if(TextUtils.isEmpty(courseNumber)){
+                    Toast.makeText(AddCourseActivity.this,
+                            "Please enter course number.", Toast.LENGTH_LONG)
+                            .show();
+                    return;
+                }
+
+                String building = addBuildingInput.getText().toString();
+                if(Arrays.binarySearch(getResources().getStringArray(R.array.buildings), building) > 0) {
+                    // do nothing if input matches a building in array
+                }
+                else{
+                    Toast.makeText(AddCourseActivity.this,
+                            "Please enter a valid building.", Toast.LENGTH_LONG)
+                            .show();
+                    return;
+                }
+
+                String room = roomNumberInput.getText().toString();
+                if(TextUtils.isEmpty(room)){
+                    Toast.makeText(AddCourseActivity.this,
+                            "Please enter room number.", Toast.LENGTH_LONG)
+                            .show();
+                    return;
+                }
+
+                String startTime = startTimeInput.getText().toString();
+                if(TextUtils.isEmpty(startTime)){
+                    Toast.makeText(AddCourseActivity.this,
+                            "Please enter start time.", Toast.LENGTH_LONG)
+                            .show();
+                    return;
+                }
+
+                String endTime = endTimeInput.getText().toString();
+                if(TextUtils.isEmpty(endTime)){
+                    Toast.makeText(AddCourseActivity.this,
+                            "Please enter end time.", Toast.LENGTH_LONG)
+                            .show();
+                    return;
+                }
+
+                String daysOfWeek = daysOfCourseInput.getText().toString();
+                if(TextUtils.isEmpty(daysOfWeek)){
+                    Toast.makeText(AddCourseActivity.this,
+                            "Select days of class meetings.", Toast.LENGTH_LONG)
+                            .show();
+                    return;
+                }
+                else {
+                    arrayList.add(course);
+                    arrayList.add(courseNumber);
+                    arrayList.add(building);
+                    arrayList.add(room);
+                    arrayList.add(startTime);
+                    arrayList.add(endTime);
+                    arrayList.add(daysOfWeek);
+
+                    // Pass valid data back to schedule activity
+                    Intent intent = new Intent();
+                    intent.putExtra(RESULT_COURSE_INFO, arrayList);
+                    setResult(Activity.RESULT_OK, intent);
+                    finish();
+                }
             }
         });
 
@@ -158,6 +227,6 @@ public class AddClassActivity extends AppCompatActivity implements selectDaysOfC
 
     @Override
     public void applyDaysString(String s) {
-        dateInput.setText(s);
+        daysOfCourseInput.setText(s);
     }
 }

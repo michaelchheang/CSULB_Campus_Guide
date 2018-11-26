@@ -4,99 +4,119 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddClassActivity">
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    tools:context=".AddCourseActivity"
+    tools:layout_editor_absoluteX="16dp"
+    tools:layout_editor_absoluteY="16dp">
 
     <AutoCompleteTextView
-        android:id="@+id/classesAutoCompleteTextView"
-        android:layout_width="match_parent"
+        android:id="@+id/coursesAutoCompleteTextView"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:completionHint="Enter Course Name"
         android:ellipsize="end"
-        android:hint="Enter Course Name"
+        android:hint="Course"
         android:imeOptions="actionDone|flagNoExtractUi"
-        android:inputType="text"
+        android:maxEms="10"
         android:maxLines="1"
         android:scrollHorizontally="true"
+        android:singleLine="true"
         app:layout_constraintBottom_toTopOf="@+id/buildingsAutoCompleteTextView"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_chainStyle="spread" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/courseNumberEditText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:ellipsize="end"
+        android:hint="Number"
+        android:imeOptions="actionDone|flagNoExtractUi"
+        android:inputType="number"
+        android:singleLine="true"
+        app:layout_constraintBottom_toTopOf="@+id/roomNumberEditText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toTopOf="parent" />
+
 
     <AutoCompleteTextView
         android:id="@+id/buildingsAutoCompleteTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
         android:completionHint="Enter Building Name"
         android:ellipsize="end"
-        android:hint="Enter Building Name"
+        android:hint="Building"
         android:imeOptions="actionDone|flagNoExtractUi"
         android:inputType="text"
         android:maxLines="1"
         android:scrollHorizontally="true"
         app:layout_constraintBottom_toTopOf="@+id/startTimeEditText"
-        app:layout_constraintEnd_toStartOf="@+id/roomNumberEditText"
+        app:layout_constraintEnd_toStartOf="@+id/guideline"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/classesAutoCompleteTextView" />
+        app:layout_constraintTop_toBottomOf="@+id/coursesAutoCompleteTextView" />
 
     <EditText
         android:id="@+id/roomNumberEditText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
         android:ellipsize="end"
-        android:hint="Enter Room Number"
+        android:hint="Room"
         android:imeOptions="actionDone|flagNoExtractUi"
         android:inputType="number"
         android:singleLine="true"
         app:layout_constraintBottom_toTopOf="@+id/startTimeEditText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/buildingsAutoCompleteTextView"
-        app:layout_constraintTop_toBottomOf="@+id/classesAutoCompleteTextView" />
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/courseNumberEditText" />
 
     <EditText
         android:id="@+id/startTimeEditText"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="8dp"
         android:ems="10"
         android:imeOptions="actionDone|flagNoExtractUi"
         android:inputType="time"
         app:layout_constraintBottom_toTopOf="@+id/endTimeEditText"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline4"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/startTimeTextView"
         app:layout_constraintTop_toBottomOf="@+id/buildingsAutoCompleteTextView" />
 
     <EditText
         android:id="@+id/endTimeEditText"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
         android:ems="10"
         android:imeOptions="actionDone|flagNoExtractUi"
         android:inputType="time"
-        app:layout_constraintBottom_toTopOf="@+id/daysOfClassEditText"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/daysOfCourseEditText"
+        app:layout_constraintEnd_toStartOf="@+id/guideline4"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/endTimeTextView"
         app:layout_constraintTop_toBottomOf="@+id/startTimeEditText" />
@@ -105,20 +125,15 @@
         android:id="@+id/startTimeTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:gravity="center"
-        android:text="Start Time: "
-        android:textAlignment="center"
-        app:layout_constraintBottom_toTopOf="@+id/endTimeEditText"
+        android:text="Start Time:"
+        app:layout_constraintBottom_toTopOf="@+id/endTimeTextView"
         app:layout_constraintEnd_toStartOf="@+id/startTimeEditText"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline3"
         app:layout_constraintTop_toBottomOf="@+id/buildingsAutoCompleteTextView" />
 
     <TextView
@@ -129,27 +144,25 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:gravity="center"
-        android:text="End Time: "
-        android:textAlignment="center"
+        android:text="  End Time:"
+        app:layout_constraintBottom_toTopOf="@+id/daysOfCourseEditText"
         app:layout_constraintEnd_toStartOf="@+id/endTimeEditText"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/startTimeEditText" />
+        app:layout_constraintStart_toStartOf="@+id/guideline3"
+        app:layout_constraintTop_toBottomOf="@+id/startTimeTextView" />
 
     <EditText
-        android:id="@+id/daysOfClassEditText"
+        android:id="@+id/daysOfCourseEditText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginTop="8dp"
-        android:ems="10"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
         android:hint="Select Day(s) of Class"
         android:inputType="textPersonName"
         android:textAlignment="center"
-        app:layout_constraintBottom_toTopOf="@+id/addToScheduleButton"
+        app:layout_constraintBottom_toTopOf="@+id/cancelButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -159,20 +172,21 @@
         android:id="@+id/cancelButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="98dp"
         android:layout_marginLeft="8dp"
+        android:layout_marginRight="98dp"
         android:layout_marginStart="8dp"
         android:text="Button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/addToScheduleButton"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/daysOfClassEditText" />
+        app:layout_constraintTop_toBottomOf="@+id/daysOfCourseEditText" />
 
     <Button
         android:id="@+id/addToScheduleButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
@@ -182,6 +196,34 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/cancelButton"
-        app:layout_constraintTop_toBottomOf="@+id/daysOfClassEditText" />
+        app:layout_constraintTop_toBottomOf="@+id/daysOfCourseEditText" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.7097625" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.25065964" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.15" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.85" />
 
 </android.support.constraint.ConstraintLayout>
