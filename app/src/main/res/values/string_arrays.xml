@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="classes">
+    <string-array name="courses">
         <item>Accountancy - ACCT</item>
         <item>Africana Studies - AFRS</item>
         <item>Am Sign Lang Ling &amp; Deaf Culture - ASLD</item>
