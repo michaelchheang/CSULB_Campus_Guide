@@ -10,8 +10,10 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.RequiresApi;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
@@ -19,6 +21,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -27,12 +30,16 @@ import com.google.android.gms.maps.model.LatLng;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Objects;
 
 public class ClassScheduleActivity extends AppCompatActivity {
 
@@ -199,8 +206,71 @@ public class ClassScheduleActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         recyclerView.setAdapter(mAdapter);
         swipeController = new SwipeController(new SwipeControllerActions() {
+            @RequiresApi(api = Build.VERSION_CODES.KITKAT)
             @Override
             public void onRightClicked(int position) {
+                //course to be removed
+                String toDelete = mAdapter.courses.get(position).toString();
+
+                //delete the course from file by writing all the courses except the
+                //course to be deleted to a List<Course> and then deleting the contents
+                //of the file and writing the new List to the file.
+
+                FileInputStream fis;
+                String temp = "";
+                if(fileExist(FILE_NAME)) {
+                    try {
+                        fis = openFileInput(FILE_NAME);
+                        InputStreamReader isr = new InputStreamReader(fis);
+                        BufferedReader reader = new BufferedReader(isr);
+                        String line;
+                        while ((line = reader.readLine()) != null) {
+                            if(!Objects.equals(line, toDelete)) {
+                                temp += line + "\n";
+                            }
+                        }
+                    } catch (IOException e) {
+                        //do nothing}
+                    }
+                }
+                else{
+                    new File(getBaseContext().getFilesDir(), FILE_NAME);
+                }
+
+                //TEST delete this later
+                Toast.makeText(ClassScheduleActivity.this,
+                        temp, Toast.LENGTH_LONG)
+                        .show();
+
+
+                //delete contents from file
+                PrintWriter pw = null;
+                try {
+                    pw = new PrintWriter("/data/data/chheang_michael.com.csulb_campus_guide/files/courseInfoFile.txt");
+                    pw.write("");
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                }
+                pw.close();
+
+                //write new content to file
+                FileOutputStream outputStream = null;
+                try {
+                    outputStream = openFileOutput(FILE_NAME, Context.MODE_APPEND);
+                    outputStream.write(temp.getBytes());
+                } catch (Exception e){
+                    e.printStackTrace();
+                }finally {
+                    if(outputStream != null){
+                        try {
+                            outputStream.close();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+
+                //delete from recycler view
                 mAdapter.courses.remove(position);
                 mAdapter.notifyItemRemoved(position);
                 mAdapter.notifyItemRangeChanged(position, mAdapter.getItemCount());

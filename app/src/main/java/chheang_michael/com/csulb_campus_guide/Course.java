@@ -86,4 +86,15 @@ public class Course {
     public void setDaysOfClass(String daysOfClass) {
         this.daysOfClass = daysOfClass;
     }
+
+    @Override
+    public String toString() {
+        return  courseSubject + ";" +
+                courseNumber  + ";" +
+                building      + ";" +
+                room          + ";" +
+                startTime     + ";" +
+                endTime       + ";" +
+                daysOfClass   + ";";
+    }
 }
