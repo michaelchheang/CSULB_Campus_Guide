@@ -9,6 +9,14 @@ import android.widget.TextView;
 import java.util.List;
 
 class CourseDataAdapter extends RecyclerView.Adapter<CourseDataAdapter.CourseViewHolder> {
+
+    @Override
+    public String toString() {
+        return "CourseDataAdapter{" +
+                "courses=" + courses +
+                '}';
+    }
+
     public List<Course> courses;
 
     public class CourseViewHolder extends RecyclerView.ViewHolder{

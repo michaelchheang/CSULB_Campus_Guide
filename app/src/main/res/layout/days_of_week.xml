@@ -15,12 +15,13 @@
         android:layout_marginStart="8dp"
         android:button="@null"
         android:drawableRight="?android:attr/listChoiceIndicatorMultiple"
-        android:text="Sunday"
+        android:text="@string/sunday"
         app:layout_constraintBottom_toTopOf="@+id/mondayCheckBox"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_chainStyle="spread" />
+        app:layout_constraintVertical_chainStyle="spread"
+        android:drawableEnd="?android:attr/listChoiceIndicatorMultiple" />
 
     <CheckBox
         android:id="@+id/mondayCheckBox"
@@ -32,11 +33,12 @@
         android:layout_marginStart="8dp"
         android:button="@null"
         android:drawableRight="?android:attr/listChoiceIndicatorMultiple"
-        android:text="Monday"
+        android:text="@string/monday"
         app:layout_constraintBottom_toTopOf="@+id/tuesdayCheckBox"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sundayCheckBox" />
+        app:layout_constraintTop_toBottomOf="@+id/sundayCheckBox"
+        android:drawableEnd="?android:attr/listChoiceIndicatorMultiple" />
 
     <CheckBox
         android:id="@+id/tuesdayCheckBox"
@@ -48,11 +50,12 @@
         android:layout_marginStart="8dp"
         android:button="@null"
         android:drawableRight="?android:attr/listChoiceIndicatorMultiple"
-        android:text="Tuesday"
+        android:text="@string/tuesday"
         app:layout_constraintBottom_toTopOf="@+id/wednesdayCheckBox"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mondayCheckBox" />
+        app:layout_constraintTop_toBottomOf="@+id/mondayCheckBox"
+        android:drawableEnd="?android:attr/listChoiceIndicatorMultiple" />
 
     <CheckBox
         android:id="@+id/wednesdayCheckBox"
@@ -64,11 +67,12 @@
         android:layout_marginStart="8dp"
         android:button="@null"
         android:drawableRight="?android:attr/listChoiceIndicatorMultiple"
-        android:text="Wednesday"
+        android:text="@string/wednesday"
         app:layout_constraintBottom_toTopOf="@+id/thursdayCheckBox"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tuesdayCheckBox" />
+        app:layout_constraintTop_toBottomOf="@+id/tuesdayCheckBox"
+        android:drawableEnd="?android:attr/listChoiceIndicatorMultiple" />
 
     <CheckBox
         android:id="@+id/thursdayCheckBox"
@@ -80,11 +84,12 @@
         android:layout_marginStart="8dp"
         android:button="@null"
         android:drawableRight="?android:attr/listChoiceIndicatorMultiple"
-        android:text="Thursday"
+        android:text="@string/thursday"
         app:layout_constraintBottom_toTopOf="@+id/fridayCheckBox"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/wednesdayCheckBox" />
+        app:layout_constraintTop_toBottomOf="@+id/wednesdayCheckBox"
+        android:drawableEnd="?android:attr/listChoiceIndicatorMultiple" />
 
     <CheckBox
         android:id="@+id/fridayCheckBox"
@@ -96,11 +101,12 @@
         android:layout_marginStart="8dp"
         android:button="@null"
         android:drawableRight="?android:attr/listChoiceIndicatorMultiple"
-        android:text="Friday"
+        android:text="@string/friday"
         app:layout_constraintBottom_toTopOf="@+id/saturdayCheckBox"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/thursdayCheckBox" />
+        app:layout_constraintTop_toBottomOf="@+id/thursdayCheckBox"
+        android:drawableEnd="?android:attr/listChoiceIndicatorMultiple" />
 
     <CheckBox
         android:id="@+id/saturdayCheckBox"
@@ -113,10 +119,11 @@
         android:layout_marginStart="8dp"
         android:button="@null"
         android:drawableRight="?android:attr/listChoiceIndicatorMultiple"
-        android:text="Saturday"
+        android:text="@string/saturday"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fridayCheckBox" />
+        app:layout_constraintTop_toBottomOf="@+id/fridayCheckBox"
+        android:drawableEnd="?android:attr/listChoiceIndicatorMultiple" />
 
 </android.support.constraint.ConstraintLayout>
