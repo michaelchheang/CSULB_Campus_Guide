@@ -109,6 +109,22 @@ public class ClassScheduleActivity extends AppCompatActivity{
                 mAdapter.notifyItemRemoved(position);
                 mAdapter.notifyItemRangeChanged(position, mAdapter.getItemCount());
             }
+
+            @Override
+            public void onLeftClicked(int position){
+                //map button
+                Toast.makeText(ClassScheduleActivity.this,
+                        "PRESSED MAP!!!", Toast.LENGTH_LONG)
+                        .show();
+            }
+
+            @Override
+            public void onLeftClicked2(int position){
+                //alarm button
+                Toast.makeText(ClassScheduleActivity.this,
+                        "PRESSED ALARM!!!", Toast.LENGTH_LONG)
+                        .show();
+            }
         });
 
         ItemTouchHelper itemTouchhelper = new ItemTouchHelper(swipeController);
