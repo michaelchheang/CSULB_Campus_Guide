@@ -22,4 +22,8 @@
     <string name="saturday">Saturday</string>
     <string name="tuesday">Tuesday</string>
     <string name="monday">Monday</string>
+    <string name="channel_name">notification_channel</string>
+    <string name="channel_description">notifies the user</string>
+    <string name="ok">OK</string>
+    <string name="dialog_class_begins">Class is beginning soon!</string>
 </resources>

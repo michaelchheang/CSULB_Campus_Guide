@@ -1,7 +1,11 @@
 package chheang_michael.com.csulb_campus_guide;
 
 import android.Manifest;
+import android.annotation.TargetApi;
 import android.app.Activity;
+import android.app.DialogFragment;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -21,7 +25,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
-import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -33,7 +36,6 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -45,18 +47,21 @@ public class ClassScheduleActivity extends AppCompatActivity {
 
     public static final int REQUEST_CODE_FOR_COURSE_INFO = 1337;
     private static final String FILE_NAME = "courseInfoFile.txt";
+    private static final String CHANNEL_ID = "1235168";
     private CourseDataAdapter mAdapter;
     SwipeController swipeController = null;
     FloatingActionButton fab;
     FloatingActionButton campusMapButton;
-    HashMap<String, LatLng> hMap = new HashMap<String, LatLng>();
+    HashMap<String, LatLng> hMap = new HashMap<>();
     private LocationManager locationManager;
     private LocationListener locationListener;
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_class_schedule);
+        createNotificationChannel();
 
         hMap.put("Library - LIB", new LatLng(33.777196, -118.114788));
         hMap.put("Liberal Arts 1 - LA1", new LatLng(33.777649, -118.114723));
@@ -97,40 +102,23 @@ public class ClassScheduleActivity extends AppCompatActivity {
         locationManager = (LocationManager) this.getSystemService(LOCATION_SERVICE);
         locationListener = new LocationListener() {
             @Override
-            public void onLocationChanged(Location location) {
-
-            }
+            public void onLocationChanged(Location location) {}
 
             @Override
-            public void onStatusChanged(String provider, int status, Bundle extras) {
-
-            }
+            public void onStatusChanged(String provider, int status, Bundle extras) {}
 
             @Override
-            public void onProviderEnabled(String provider) {
-
-            }
+            public void onProviderEnabled(String provider) {}
 
             @Override
-            public void onProviderDisabled(String provider) {
-
-            }
+            public void onProviderDisabled(String provider) {}
         };
 
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION},1);
-            return;
-        }
+            return;}
 
         setTitle("CSULB Campus Guide");
-
         fab = findViewById(R.id.addClassFloatingActionButton);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -142,18 +130,15 @@ public class ClassScheduleActivity extends AppCompatActivity {
                 //Get course details through the add class activity dialog.
                 Intent intent = new Intent(ClassScheduleActivity.this, AddCourseActivity.class);
                 startActivityForResult(intent, REQUEST_CODE_FOR_COURSE_INFO);
-            }
-        });
+            }});
 
         campusMapButton = findViewById(R.id.campusMapFloatingActionButton);
         campusMapButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Open Campus Map activity
                 Intent intent = new Intent(ClassScheduleActivity.this, CampusMapActivity.class);
                 startActivity(intent);
-            }
-        });
+            }});
 
         setCourseDataAdapter();
         setupRecyclerView();
@@ -164,14 +149,13 @@ public class ClassScheduleActivity extends AppCompatActivity {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         if(grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
             if(ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)==PackageManager.PERMISSION_GRANTED){
-                locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 00, 00, locationListener);
-            }
-        }
-    }
+                locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, locationListener);
+            }}}
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     private void setCourseDataAdapter(){
         List<Course> courses = new ArrayList<>();
-        FileInputStream fis = null;
+        FileInputStream fis;
         if(fileExist(FILE_NAME)) {
             try {
                 fis = openFileInput(FILE_NAME);
@@ -189,27 +173,25 @@ public class ClassScheduleActivity extends AppCompatActivity {
                     course.setStartTime(courseInfoSection[4]);
                     course.setEndTime(courseInfoSection[5]);
                     course.setDaysOfClass(courseInfoSection[6]);
+                    course.setNotificationFlag(courseInfoSection[7]);
+                    course.setNotifyTime(courseInfoSection[8]);
+                    course.setTimeType(courseInfoSection[9]);
                     courses.add(course);
                 }
-            } catch (IOException e) {
-                //do nothing}
-            }
-        }
-        else{
-            new File(getBaseContext().getFilesDir(), FILE_NAME);
-        }
+            } catch (IOException e) {/*do nothing*/}
+        }else{ new File(getBaseContext().getFilesDir(), FILE_NAME); }
         mAdapter = new CourseDataAdapter(courses);
     }
 
     private void setupRecyclerView(){
-        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.classRecyclerView);
+        final RecyclerView recyclerView = findViewById(R.id.classRecyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         recyclerView.setAdapter(mAdapter);
         swipeController = new SwipeController(new SwipeControllerActions() {
             @RequiresApi(api = Build.VERSION_CODES.KITKAT)
             @Override
             public void onRightClicked(int position) {
-                //course to be removed
+                //what DELETE button does upon click
                 String toDelete = mAdapter.courses.get(position).toString();
 
                 //delete the course from file by writing all the courses except the
@@ -217,7 +199,7 @@ public class ClassScheduleActivity extends AppCompatActivity {
                 //of the file and writing the new List to the file.
 
                 FileInputStream fis;
-                String temp = "";
+                StringBuilder temp = new StringBuilder();
                 if(fileExist(FILE_NAME)) {
                     try {
                         fis = openFileInput(FILE_NAME);
@@ -225,50 +207,30 @@ public class ClassScheduleActivity extends AppCompatActivity {
                         BufferedReader reader = new BufferedReader(isr);
                         String line;
                         while ((line = reader.readLine()) != null) {
-                            if(!Objects.equals(line, toDelete)) {
-                                temp += line + "\n";
-                            }
+                            if(!Objects.equals(line, toDelete)) { temp.append(line).append("\n"); }
                         }
-                    } catch (IOException e) {
-                        //do nothing}
-                    }
-                }
-                else{
-                    new File(getBaseContext().getFilesDir(), FILE_NAME);
-                }
-
-                //TEST delete this later
-                Toast.makeText(ClassScheduleActivity.this,
-                        temp, Toast.LENGTH_LONG)
-                        .show();
-
+                    } catch (IOException e) {/*do nothing*/}
+                } else{ new File(getBaseContext().getFilesDir(), FILE_NAME); }
 
                 //delete contents from file
                 PrintWriter pw = null;
                 try {
                     pw = new PrintWriter("/data/data/chheang_michael.com.csulb_campus_guide/files/courseInfoFile.txt");
                     pw.write("");
-                } catch (FileNotFoundException e) {
-                    e.printStackTrace();
-                }
+                } catch (FileNotFoundException e) { e.printStackTrace(); }
                 pw.close();
 
                 //write new content to file
                 FileOutputStream outputStream = null;
                 try {
                     outputStream = openFileOutput(FILE_NAME, Context.MODE_APPEND);
-                    outputStream.write(temp.getBytes());
+                    outputStream.write(temp.toString().getBytes());
                 } catch (Exception e){
                     e.printStackTrace();
                 }finally {
                     if(outputStream != null){
-                        try {
-                            outputStream.close();
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                }
+                        try { outputStream.close(); }
+                        catch (IOException e) { e.printStackTrace(); }}}
 
                 //delete from recycler view
                 mAdapter.courses.remove(position);
@@ -278,7 +240,7 @@ public class ClassScheduleActivity extends AppCompatActivity {
 
             @Override
             public void onLeftClicked(int position){
-                //what map button does upon a click
+                //what MAP button does upon a click
                 Course course = mAdapter.courses.get(position);
                 Toast.makeText(ClassScheduleActivity.this,
                         course.getBuilding(), Toast.LENGTH_LONG)
@@ -287,26 +249,29 @@ public class ClassScheduleActivity extends AppCompatActivity {
                 launchNavigation(location.latitude, location.longitude);
             }
 
+            @RequiresApi(api = Build.VERSION_CODES.KITKAT)
             @Override
             public void onLeftClicked2(int position){
-                //what the alarm button when clicked
-                Toast.makeText(ClassScheduleActivity.this,
-                        "PRESSED ALARM!!!", Toast.LENGTH_LONG)
-                        .show();
+                setCourseDataAdapter();
+                recyclerView.setAdapter(mAdapter);
+                DialogFragment newFragment = new NotificationsFragment();
+                Bundle bundle = new Bundle();
+                bundle.putString("toChange", mAdapter.courses.get(position).toString());
+                newFragment.setArguments(bundle);
+                newFragment.show(getFragmentManager(), "notification_settings");
             }
         });
 
         ItemTouchHelper itemTouchhelper = new ItemTouchHelper(swipeController);
         itemTouchhelper.attachToRecyclerView(recyclerView);
-
         recyclerView.addItemDecoration(new RecyclerView.ItemDecoration() {
             @Override
-            public void onDraw(Canvas c, RecyclerView parent, RecyclerView.State state) {
-                swipeController.onDraw(c);
-            }
+            public void onDraw(Canvas c, RecyclerView parent, RecyclerView.State state) { swipeController.onDraw(c); }
         });
     }
 
+    @TargetApi(Build.VERSION_CODES.KITKAT)
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         switch(requestCode) {
@@ -314,16 +279,17 @@ public class ClassScheduleActivity extends AppCompatActivity {
                 if (resultCode == Activity.RESULT_OK) {
                     //Get the course details
                     ArrayList<String> arrayList= AddCourseActivity.getCourseInfo(data);
-                    String courseInfo = "";
+                    StringBuilder courseInfo = new StringBuilder();
                     for(int i = 0; i < arrayList.size(); i++){
-                        courseInfo += arrayList.get(i) + ";";
+                        courseInfo.append(arrayList.get(i)).append(";");
                     }
-                    courseInfo += "\n";
+                    courseInfo.append("false;30;minute(s);");
+                    courseInfo.append("\n");
 
                     FileOutputStream outputStream = null;
                     try {
                         outputStream = openFileOutput(FILE_NAME, Context.MODE_APPEND);
-                        outputStream.write(courseInfo.getBytes());
+                        outputStream.write(courseInfo.toString().getBytes());
                     } catch (Exception e){
                         e.printStackTrace();
                     }finally {
@@ -331,10 +297,7 @@ public class ClassScheduleActivity extends AppCompatActivity {
                             try {
                                 outputStream.close();
                             } catch (IOException e) {
-                                e.printStackTrace();
-                            }
-                        }
-                    }
+                                e.printStackTrace(); }}}
 
                     setCourseDataAdapter();
                     setupRecyclerView();
@@ -368,5 +331,20 @@ public class ClassScheduleActivity extends AppCompatActivity {
         mapIntent.setPackage("com.google.android.apps.maps");
         startActivity(mapIntent);
     }
-}
 
+    private void createNotificationChannel() {
+        // Create the NotificationChannel, but only on API 26+ because
+        // the NotificationChannel class is new and not in the support library
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            CharSequence name = getString(R.string.channel_name);
+            String description = getString(R.string.channel_description);
+            int importance = NotificationManager.IMPORTANCE_DEFAULT;
+            NotificationChannel channel = new NotificationChannel(CHANNEL_ID, name, importance);
+            channel.setDescription(description);
+            // Register the channel with the system; you can't change the importance
+            // or other notification behaviors after this
+            NotificationManager notificationManager = getSystemService(NotificationManager.class);
+            notificationManager.createNotificationChannel(channel);
+        }
+    }
+}
