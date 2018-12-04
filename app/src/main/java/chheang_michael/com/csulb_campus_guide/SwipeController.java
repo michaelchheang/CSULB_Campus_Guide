@@ -4,6 +4,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.RectF;
+import android.graphics.Typeface;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper.Callback;
 import android.view.MotionEvent;
@@ -123,7 +124,6 @@ class SwipeController extends Callback {
                     if (buttonsActions != null && buttonInstance != null && buttonInstance.contains(event.getX(), event.getY())) {
                         if (buttonShowedState == ButtonsState.LEFT_VISIBLE) {
                             buttonsActions.onLeftClicked(viewHolder.getAdapterPosition());
-                            //buttonsActions.onLeftClicked2(viewHolder.getAdapterPosition());
                         }
                         else if (buttonShowedState == ButtonsState.RIGHT_VISIBLE) {
                             buttonsActions.onRightClicked(viewHolder.getAdapterPosition());
@@ -159,17 +159,17 @@ class SwipeController extends Callback {
         Paint p = new Paint();
 
         RectF leftButton = new RectF(itemView.getLeft(), itemView.getTop(), itemView.getLeft() + buttonWidthWithoutPadding, itemView.getBottom());
-        p.setColor(Color.BLUE);
+        p.setColor(Color.parseColor("#80F0F0"));
         c.drawRoundRect(leftButton, corners, corners, p);
         drawText("MAP", c, leftButton, p);
 
         RectF leftButton2 = new RectF(itemView.getLeft()+ BUTTON_WIDTH, itemView.getTop(), itemView.getLeft() + BUTTON_WIDTH + buttonWidthWithoutPadding, itemView.getBottom());
-        p.setColor(Color.CYAN);
+        p.setColor(Color.parseColor("#F0b880"));
         c.drawRoundRect(leftButton2, corners, corners, p);
-        drawText("ALARM", c, leftButton2, p);
+        drawText("NOTIFY", c, leftButton2, p);
 
         RectF rightButton = new RectF(itemView.getRight() - buttonWidthWithoutPadding, itemView.getTop(), itemView.getRight(), itemView.getBottom());
-        p.setColor(Color.RED);
+        p.setColor(Color.parseColor("#F08080"));
         c.drawRoundRect(rightButton, corners, corners, p);
         drawText("DELETE", c, rightButton, p);
 
@@ -184,10 +184,11 @@ class SwipeController extends Callback {
     }
 
     private void drawText(String text, Canvas c, RectF button, Paint p) {
-        float textSize = 60;
+        float textSize = 70;
         p.setColor(Color.WHITE);
         p.setAntiAlias(true);
         p.setTextSize(textSize);
+        p.setTypeface(Typeface.DEFAULT_BOLD);
 
         float textWidth = p.measureText(text);
         c.drawText(text, button.centerX()-(textWidth/2), button.centerY()+(textSize/2), p);

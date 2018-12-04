@@ -44,7 +44,8 @@
             android:theme="@style/Theme.AppCompat.Dialog">
         </activity>
 
-        <activity android:name=".ClassScheduleActivity">
+        <activity android:name=".ClassScheduleActivity"
+            android:theme="@style/Theme.AppCompat">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
