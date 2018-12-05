@@ -3,9 +3,13 @@ package chheang_michael.com.csulb_campus_guide;
 import android.Manifest;
 import android.annotation.TargetApi;
 import android.app.Activity;
+import android.app.AlarmManager;
 import android.app.DialogFragment;
+import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.app.TaskStackBuilder;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -39,6 +43,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Objects;
@@ -56,12 +62,35 @@ public class ClassScheduleActivity extends AppCompatActivity {
     private LocationManager locationManager;
     private LocationListener locationListener;
 
+    NotificationManager notificationManager;
+    int notifID = 33;
+    boolean isNotificActive = false;
+
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_class_schedule);
-        createNotificationChannel();
+
+        FileInputStream fis;
+        ArrayList<String[]> arrayList = new ArrayList<>();
+        if(fileExist(FILE_NAME)) {
+            try {
+                fis = openFileInput(FILE_NAME);
+                InputStreamReader isr = new InputStreamReader(fis);
+                BufferedReader reader = new BufferedReader(isr);
+                String line;
+                while ((line = reader.readLine()) != null) {
+                    arrayList.add(line.split(";"));
+                }
+            }catch (IOException e) {/*do nothing*/}
+        }
+        else{new File(getFilesDir(), FILE_NAME);}
+
+        for(int i = 0; i < arrayList.size(); i++)
+        {
+            setAlarmNotification();
+        }
 
         hMap.put("Library - LIB", new LatLng(33.777196, -118.114788));
         hMap.put("Liberal Arts 1 - LA1", new LatLng(33.777649, -118.114723));
@@ -332,19 +361,30 @@ public class ClassScheduleActivity extends AppCompatActivity {
         startActivity(mapIntent);
     }
 
-    private void createNotificationChannel() {
-        // Create the NotificationChannel, but only on API 26+ because
-        // the NotificationChannel class is new and not in the support library
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            CharSequence name = getString(R.string.channel_name);
-            String description = getString(R.string.channel_description);
-            int importance = NotificationManager.IMPORTANCE_DEFAULT;
-            NotificationChannel channel = new NotificationChannel(CHANNEL_ID, name, importance);
-            channel.setDescription(description);
-            // Register the channel with the system; you can't change the importance
-            // or other notification behaviors after this
-            NotificationManager notificationManager = getSystemService(NotificationManager.class);
-            notificationManager.createNotificationChannel(channel);
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+    public void setAlarmNotification(String timeBefore, String timeType, String courseName, String building) {
+
+        int time = Integer.parseInt(timeBefore);
+        if(Objects.equals(timeType, "hour(s)"))
+        {
+            
         }
+        // Define a time value of 5 seconds
+        Long alertTime = new GregorianCalendar().getTimeInMillis()+time*1000;
+
+        // Define our intention of executing AlertReceiver
+        Intent alertIntent = new Intent(this, AlertReceiver.class);
+
+        // Allows you to schedule for your application to do something at a later date
+        // even if it is in he background or isn't active
+        AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+
+        // set() schedules an alarm to trigger
+        // Trigger for alertIntent to fire in 5 seconds
+        // FLAG_UPDATE_CURRENT : Update the Intent if active
+        alarmManager.set(AlarmManager.RTC_WAKEUP, alertTime,
+                PendingIntent.getBroadcast(this, 1, alertIntent,
+                        PendingIntent.FLAG_UPDATE_CURRENT));
+
     }
 }
